@@ -26,6 +26,14 @@ export default function Home() {
         >
           Ver mis proyectos
         </a>
+        {/* BOTON PARA DESCARGAR CV */}
+        <a
+          href="/Curriculum.pdf"
+          download
+          className="mt-4 px-8 py-3 bg-gray-800 hover:bg-gray-900 transition rounded-lg font-semibold border border-white/10"
+        >
+          Descargar CV
+        </a>
       </section>
 
       {/* SOBRE MÍ */}
