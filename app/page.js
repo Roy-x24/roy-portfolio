@@ -16,8 +16,8 @@ export default function Home() {
         </h1>
 
         <p className="mt-4 text-gray-300 max-w-2xl">
-          Desarrollador de Software | Linux | Docker | IoT ESP32 | PHP | Next.js |
-          Virtualización | Bases de Datos
+          Software Developer | Frontend & Backend | Modern Web Solutions | Data Management
+
         </p>
 
         <a
@@ -43,10 +43,15 @@ export default function Home() {
       >
         <h2 className="text-4xl font-bold mb-6">Sobre mí</h2>
         <p className="max-w-3xl text-gray-300 text-lg">
-          Soy un desarrollador de software apasionado por crear soluciones
-          modernas usando tecnologías como Next.js, Docker, Linux, ESP32, PHP,
-          SQL Server y más. Me encanta trabajar en proyectos prácticos,
-          resolver problemas reales y aprender cosas nuevas todos los días.
+          Soy un desarrollador de software en formación que ha participado en distintos proyectos colaborativos durante la universidad. 
+A lo largo de este tiempo he trabajado en aplicaciones web, pequeños sistemas internos y proyectos prácticos que me han permitido 
+conocer diferentes áreas del desarrollo. Me gusta organizarme, entender bien los problemas antes de escribir código y asegurarme 
+de que lo que hago sea útil y fácil de mantener.
+<br />
+<br />
+Disfruto trabajar en equipo, compartir ideas y aprender de otras personas. Siempre busco mejorar mis habilidades y aplicar lo que 
+aprendo en proyectos reales. Mi objetivo es seguir creciendo profesionalmente y aportar de manera responsable en cada proyecto en 
+el que participe.
         </p>
       </section>
 
@@ -57,18 +62,30 @@ export default function Home() {
       >
         <h2 className="text-4xl font-bold mb-10">Habilidades</h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-xl text-gray-300">
-          <span>Next.js</span>
-          <span>React</span>
-          <span>TailwindCSS</span>
-          <span>Node.js</span>
-          <span>PHP</span>
-          <span>SQL Server</span>
-          <span>Docker</span>
-          <span>Linux</span>
-          <span>ESP32</span>
-          <span>MQTT</span>
-        </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 text-lg text-gray-300">
+
+  {/* Desarrollo Web */}
+  <span className="font-semibold text-purple-400 col-span-2 md:col-span-3 mt-4">Desarrollo Web</span>
+  <span>Next.js</span>
+  <span>React</span>
+  <span>TailwindCSS</span>
+  <span>HTML / CSS</span>
+  <span>Node.js</span>
+  <span>PHP</span>
+
+  {/* Bases de Datos */}
+  <span className="font-semibold text-purple-400 col-span-2 md:col-span-3 mt-4">Bases de Datos</span>
+  <span>SQL Server</span>
+  <span>MySQL</span>
+  <span>Modelado de Datos</span>
+
+  {/* Control de Versiones */}
+  <span className="font-semibold text-purple-400 col-span-2 md:col-span-3 mt-4">Control de Versiones</span>
+  <span>Git</span>
+  <span>GitHub</span>
+
+</div>
+
       </section>
 
       {/* PROYECTOS */}
