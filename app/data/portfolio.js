@@ -175,3 +175,16 @@ export const education = [
     status: "En curso",
   },
 ];
+
+export const principles = [
+  { icon: "</>", title: "Clean Code", text: "Código legible, modular y con revisiones de pares." },
+  { icon: "#!", title: "Seguridad primero", text: "Validación, roles y trazabilidad desde el diseño." },
+  { icon: "→", title: "Entregas pequeñas", text: "Scrum, iteraciones cortas y feedback constante." },
+  { icon: "§", title: "Todo documentado", text: "READMEs, APIs y decisiones que cualquiera entiende." },
+];
+
+export const learning = [
+  { name: "PCAP", org: "Python Institute · Certified Associate" },
+  { name: "Cloud Fundamentals", org: "AWS / Microsoft Learn" },
+  { name: "Ciberseguridad", org: "defensa · buenas prácticas · ética" },
+];

@@ -164,3 +164,26 @@ body {
   .reveal { opacity: 1; transform: none; transition: none; }
   .aurora span, .text-gradient, .marquee, .float, .caret { animation: none; }
 }
+
+/* Flujo animado en el diagrama de arquitectura */
+.flow {
+  stroke-dasharray: 6 6;
+  animation: flow 1.2s linear infinite;
+}
+@keyframes flow {
+  to { stroke-dashoffset: -12; }
+}
+
+/* Barras de "aprendiendo" */
+.loading-bar {
+  width: 40%;
+  animation: loading 3.2s ease-in-out infinite alternate;
+}
+@keyframes loading {
+  from { width: 25%; }
+  to { width: 72%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flow, .loading-bar { animation: none; }
+}
