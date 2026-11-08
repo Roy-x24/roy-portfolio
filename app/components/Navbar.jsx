@@ -71,7 +71,16 @@ export default function Navbar() {
               </li>
             );
           })}
-          <li className="ml-3">
+          <li className="ml-2">
+            <button
+              onClick={() => window.dispatchEvent(new Event("open-palette"))}
+              className="rounded-full border border-white/15 px-3 py-1.5 font-mono text-xs text-gray-400 hover:text-white hover:border-white/40 transition"
+              aria-label="Abrir paleta de comandos"
+            >
+              Ctrl K
+            </button>
+          </li>
+          <li className="ml-1">
             <a
               href="/Curriculum.pdf"
               download
