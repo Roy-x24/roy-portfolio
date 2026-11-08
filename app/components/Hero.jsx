@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Typewriter from "./Typewriter";
+import ParticleField from "./ParticleField";
 import { profile } from "../data/portfolio";
 
 export default function Hero() {
@@ -14,6 +15,7 @@ export default function Hero() {
         <span />
       </div>
       <div className="grid-bg absolute inset-0 pointer-events-none" />
+      <ParticleField />
 
       <div className="relative z-10 flex flex-col items-center">
         <div className="float relative">
