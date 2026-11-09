@@ -115,6 +115,16 @@ export default function Navbar() {
               </a>
             </li>
           ))}
+          <li className="pt-2">
+            <a
+              href="/Curriculum.pdf"
+              download
+              className="block rounded-xl bg-purple-600 py-3 text-center font-semibold"
+              onClick={() => setOpen(false)}
+            >
+              Descargar CV
+            </a>
+          </li>
         </ul>
       )}
     </nav>

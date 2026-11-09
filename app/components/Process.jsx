@@ -4,7 +4,7 @@ import { principles, learning } from "../data/portfolio";
 
 export default function Process() {
   return (
-    <section id="proceso" className="relative py-28 px-6 overflow-hidden">
+    <section id="proceso" className="relative py-20 md:py-28 px-5 sm:px-6 overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <SectionTitle
           eyebrow="cómo trabajo"

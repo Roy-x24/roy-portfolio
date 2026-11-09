@@ -6,7 +6,7 @@ const allTech = skillGroups.flatMap((g) => g.items);
 
 export default function Skills() {
   return (
-    <section id="habilidades" className="relative py-28 px-6 overflow-hidden">
+    <section id="habilidades" className="relative py-20 md:py-28 px-5 sm:px-6 overflow-hidden">
       <div className="aurora opacity-40">
         <span />
         <span />

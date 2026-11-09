@@ -23,12 +23,12 @@ function tokenClass(tok, j) {
 
 export default function About() {
   return (
-    <section id="sobre-mi" className="relative py-28 px-6 bg-[#0b0a14]">
+    <section id="sobre-mi" className="relative py-20 md:py-28 px-5 sm:px-6 bg-[#0b0a14]">
       <div className="max-w-6xl mx-auto">
         <SectionTitle eyebrow="sobre mí" title="Código limpio, problemas reales" />
 
         <div className="grid lg:grid-cols-2 gap-10 items-center">
-          <Reveal className="space-y-5 text-gray-300 text-lg leading-relaxed">
+          <Reveal className="min-w-0 space-y-5 text-gray-300 text-base sm:text-lg leading-relaxed">
             <p>
               Soy desarrollador de software con experiencia en frontend y
               backend, en proyectos académicos y profesionales donde he
@@ -50,7 +50,7 @@ export default function About() {
             </p>
           </Reveal>
 
-          <Reveal delay={150}>
+          <Reveal delay={150} className="min-w-0">
             <div className="rounded-2xl border border-white/10 bg-black/60 shadow-2xl shadow-purple-900/20 overflow-hidden">
               <div className="flex items-center gap-2 px-4 py-3 border-b border-white/10 bg-white/5">
                 <span className="h-3 w-3 rounded-full bg-red-500/80" />

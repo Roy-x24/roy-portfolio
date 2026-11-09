@@ -103,7 +103,7 @@ export default function Terminal() {
   };
 
   return (
-    <section id="terminal" className="relative py-28 px-6">
+    <section id="terminal" className="relative py-20 md:py-28 px-5 sm:px-6">
       <div className="max-w-4xl mx-auto">
         <SectionTitle
           eyebrow="terminal"
@@ -127,7 +127,7 @@ export default function Terminal() {
 
             <div
               ref={bodyRef}
-              className="h-80 overflow-y-auto p-5 font-mono text-sm leading-6"
+              className="h-72 sm:h-80 overflow-y-auto p-4 sm:p-5 font-mono text-[13px] sm:text-sm leading-6"
             >
               {lines.map((l, i) =>
                 l.type === "in" ? (

@@ -30,7 +30,7 @@ const links = [
 
 export default function Contact() {
   return (
-    <section id="contacto" className="relative py-32 px-6 overflow-hidden bg-[#0b0a14]">
+    <section id="contacto" className="relative py-24 md:py-32 px-5 sm:px-6 overflow-hidden bg-[#0b0a14]">
       <div className="aurora opacity-60">
         <span />
         <span />
@@ -42,7 +42,7 @@ export default function Contact() {
           <p className="font-mono text-sm tracking-widest uppercase text-cyan-400">
             {"// contacto"}
           </p>
-          <h2 className="mt-3 text-4xl md:text-6xl font-extrabold">
+          <h2 className="mt-3 text-3xl sm:text-4xl md:text-6xl font-extrabold">
             ¿Construimos algo <span className="text-gradient">juntos</span>?
           </h2>
           <p className="mt-6 text-lg text-gray-400">

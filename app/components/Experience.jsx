@@ -10,7 +10,7 @@ const statusStyle = {
 
 export default function Experience() {
   return (
-    <section id="experiencia" className="relative py-28 px-6">
+    <section id="experiencia" className="relative py-20 md:py-28 px-5 sm:px-6">
       <div className="max-w-4xl mx-auto">
         <SectionTitle
           eyebrow="experiencia"
@@ -19,12 +19,12 @@ export default function Experience() {
         />
 
         {/* Línea de tiempo */}
-        <div className="relative border-l border-white/15 pl-8 space-y-10">
+        <div className="relative border-l border-white/15 pl-6 sm:pl-8 space-y-10">
           {experience.map((job, i) => (
             <Reveal key={job.org} delay={i * 120}>
               <div className="relative">
-                <span className="absolute -left-[41px] top-2 h-4 w-4 rounded-full border-2 border-purple-400 bg-black shadow-[0_0_14px_rgba(168,85,247,0.9)]" />
-                <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-7 hover:border-purple-500/60 transition">
+                <span className="absolute -left-[33px] sm:-left-[41px] top-2 h-4 w-4 rounded-full border-2 border-purple-400 bg-black shadow-[0_0_14px_rgba(168,85,247,0.9)]" />
+                <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 sm:p-7 hover:border-purple-500/60 transition">
                   <h3 className="text-xl font-bold">{job.org}</h3>
                   <p className="mt-1 text-sm font-mono text-cyan-300">{job.role}</p>
                   <p className="mt-4 text-gray-400 leading-relaxed">{job.summary}</p>

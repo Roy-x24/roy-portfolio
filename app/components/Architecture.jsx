@@ -15,7 +15,7 @@ const rowY = (i) => 45 + i * 55;
 // Diagrama animado de la arquitectura de "Plataforma de Reservas Turísticas"
 export default function Architecture() {
   return (
-    <section id="arquitectura" className="relative py-28 px-6">
+    <section id="arquitectura" className="relative py-20 md:py-28 px-5 sm:px-6">
       <div className="max-w-5xl mx-auto">
         <SectionTitle
           eyebrow="bajo el capó"
@@ -24,10 +24,11 @@ export default function Architecture() {
         />
 
         <Reveal>
-          <div className="rounded-2xl border border-white/10 bg-black/50 p-4 md:p-8 overflow-x-auto">
+          <p className="mb-3 text-center text-xs text-gray-500 md:hidden">← desliza para ver el diagrama completo →</p>
+          <div className="rounded-2xl border border-white/10 bg-black/50 p-3 md:p-8 overflow-x-auto">
             <svg
               viewBox="0 0 820 420"
-              className="mx-auto w-full min-w-[640px]"
+              className="mx-auto w-full min-w-[560px]"
               role="img"
               aria-label="Diagrama: cliente React, API Gateway, siete microservicios, RabbitMQ y PostgreSQL por servicio"
             >

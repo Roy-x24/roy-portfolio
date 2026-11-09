@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-20 overflow-hidden"
+      className="relative min-h-[100svh] flex flex-col items-center justify-center text-center px-6 pt-20 overflow-hidden"
     >
       <div className="aurora">
         <span />
@@ -30,7 +30,7 @@ export default function Hero() {
           />
         </div>
 
-        <span className="mt-8 inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-1.5 text-sm text-emerald-300">
+        <span className="mt-8 inline-flex max-w-full items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-1.5 text-xs sm:text-sm text-emerald-300">
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
@@ -38,11 +38,11 @@ export default function Hero() {
           Disponible para nuevas oportunidades
         </span>
 
-        <h1 className="mt-6 text-5xl md:text-7xl font-extrabold tracking-tight">
+        <h1 className="mt-6 text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight">
           Hola, soy <span className="text-gradient">{profile.name}</span>
         </h1>
 
-        <p className="mt-5 h-9 font-mono text-xl md:text-2xl text-gray-300">
+        <p className="mt-5 min-h-[2.5rem] font-mono text-base sm:text-xl md:text-2xl text-gray-300">
           <span className="text-purple-400">&gt; </span>
           <Typewriter words={profile.roles} />
         </p>
@@ -90,7 +90,7 @@ export default function Hero() {
       <a
         href="#sobre-mi"
         aria-label="Bajar a Sobre mí"
-        className="absolute bottom-8 z-10 flex h-10 w-6 justify-center rounded-full border-2 border-white/30 pt-2"
+        className="absolute bottom-8 z-10 hidden md:flex h-10 w-6 justify-center rounded-full border-2 border-white/30 pt-2"
       >
         <span className="h-2 w-1 animate-bounce rounded-full bg-white/70" />
       </a>
