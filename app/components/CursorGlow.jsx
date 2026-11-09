@@ -8,20 +8,21 @@ export default function CursorGlow() {
   useEffect(() => {
     if (!window.matchMedia("(hover: hover)").matches) return;
     const el = ref.current;
-    let x = 0, y = 0, tx = 0, ty = 0, raf;
+    let x = 0, y = 0, tx = 0, ty = 0, raf = 0;
+    const loop = () => {
+      x += (tx - x) * 0.14;
+      y += (ty - y) * 0.14;
+      el.style.transform = `translate3d(${x - 250}px, ${y - 250}px, 0)`;
+      // se detiene cuando alcanza al cursor
+      raf = Math.abs(tx - x) + Math.abs(ty - y) > 0.5 ? requestAnimationFrame(loop) : 0;
+    };
     const onMove = (e) => {
       tx = e.clientX;
       ty = e.clientY;
       el.style.opacity = "1";
+      if (!raf) raf = requestAnimationFrame(loop);
     };
-    const loop = () => {
-      x += (tx - x) * 0.12;
-      y += (ty - y) * 0.12;
-      el.style.transform = `translate3d(${x - 250}px, ${y - 250}px, 0)`;
-      raf = requestAnimationFrame(loop);
-    };
-    window.addEventListener("mousemove", onMove);
-    loop();
+    window.addEventListener("mousemove", onMove, { passive: true });
     return () => {
       window.removeEventListener("mousemove", onMove);
       cancelAnimationFrame(raf);

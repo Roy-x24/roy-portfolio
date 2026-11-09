@@ -17,13 +17,20 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 4rem;
+  overflow-x: clip;
+}
+
+/* Las secciones fuera de pantalla no se pintan hasta que se acercan */
+main > section:not(#inicio) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 ::selection {
@@ -37,7 +44,9 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: shine 6s linear infinite;
+}
+@media (min-width: 768px) {
+  .text-gradient { animation: shine 6s linear infinite; }
 }
 
 @keyframes shine {
@@ -46,7 +55,7 @@ body {
   }
 }
 
-/* Aurora de fondo */
+/* Aurora de fondo (degradados radiales: mucho más baratos que filter: blur) */
 .aurora {
   position: absolute;
   inset: 0;
@@ -56,24 +65,25 @@ body {
 .aurora span {
   position: absolute;
   border-radius: 9999px;
-  filter: blur(120px);
-  opacity: 0.45;
-  animation: drift 18s ease-in-out infinite alternate;
+  opacity: 0.5;
+  will-change: transform;
 }
 .aurora span:nth-child(1) {
-  width: 520px; height: 520px; left: 8%; top: 10%;
-  background: #7c3aed;
+  width: 560px; height: 560px; left: -10%; top: 5%;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.75), transparent 68%);
 }
 .aurora span:nth-child(2) {
-  width: 440px; height: 440px; right: 6%; top: 30%;
-  background: #0891b2;
-  animation-delay: -6s;
+  width: 480px; height: 480px; right: -10%; top: 30%;
+  background: radial-gradient(circle, rgba(8, 145, 178, 0.7), transparent 68%);
 }
 .aurora span:nth-child(3) {
-  width: 380px; height: 380px; left: 40%; bottom: -5%;
-  background: #db2777;
-  opacity: 0.3;
-  animation-delay: -12s;
+  width: 420px; height: 420px; left: 30%; bottom: -10%;
+  background: radial-gradient(circle, rgba(219, 39, 119, 0.5), transparent 68%);
+}
+@media (min-width: 768px) {
+  .aurora span { animation: drift 18s ease-in-out infinite alternate; }
+  .aurora span:nth-child(2) { animation-delay: -6s; }
+  .aurora span:nth-child(3) { animation-delay: -12s; }
 }
 
 @keyframes drift {
@@ -162,7 +172,7 @@ body {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
-  .aurora span, .text-gradient, .marquee, .float, .caret { animation: none; }
+  .aurora span, .text-gradient, .marquee, .float, .caret { animation: none !important; }
 }
 
 /* Flujo animado en el diagrama de arquitectura */

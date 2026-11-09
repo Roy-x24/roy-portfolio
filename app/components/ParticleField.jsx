@@ -9,6 +9,8 @@ export default function ParticleField() {
     const canvas = canvasRef.current;
     if (!canvas) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    // En celulares/tablets pequeñas el fondo con degradados es suficiente y mucho más ligero
+    if (window.matchMedia("(max-width: 767px), (hover: none)").matches) return;
 
     const ctx = canvas.getContext("2d");
     const mouse = { x: -9999, y: -9999 };
@@ -24,7 +26,7 @@ export default function ParticleField() {
       canvas.width = w * dpr;
       canvas.height = h * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const count = Math.min(90, Math.floor((w * h) / 16000));
+      const count = Math.min(60, Math.floor((w * h) / 20000));
       particles = Array.from({ length: count }, () => ({
         x: Math.random() * w,
         y: Math.random() * h,
@@ -42,8 +44,15 @@ export default function ParticleField() {
       mouse.x = mouse.y = -9999;
     };
 
-    const LINK = 130;
-    const tick = () => {
+    const LINK = 115;
+    let last = 0;
+    const tick = (now = 0) => {
+      // ~30 fps es suficiente para este efecto y gasta la mitad de CPU
+      if (now - last < 33) {
+        raf = requestAnimationFrame(tick);
+        return;
+      }
+      last = now;
       ctx.clearRect(0, 0, w, h);
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
@@ -86,13 +95,27 @@ export default function ParticleField() {
       raf = requestAnimationFrame(tick);
     };
 
+    // Solo anima mientras el hero es visible y la pestaña está activa
+    let visible = true;
+    const run = () => {
+      cancelAnimationFrame(raf);
+      if (visible && !document.hidden) raf = requestAnimationFrame(tick);
+    };
+    const io = new IntersectionObserver(([e]) => {
+      visible = e.isIntersecting;
+      run();
+    });
+    io.observe(canvas);
+    document.addEventListener("visibilitychange", run);
+
     resize();
-    tick();
     window.addEventListener("resize", resize);
     window.addEventListener("mousemove", onMove);
     canvas.addEventListener("mouseleave", onLeave);
     return () => {
       cancelAnimationFrame(raf);
+      io.disconnect();
+      document.removeEventListener("visibilitychange", run);
       window.removeEventListener("resize", resize);
       window.removeEventListener("mousemove", onMove);
       canvas.removeEventListener("mouseleave", onLeave);
