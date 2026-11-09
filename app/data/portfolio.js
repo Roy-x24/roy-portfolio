@@ -14,7 +14,7 @@ export const profile = {
 };
 
 export const stats = [
-  { value: 28, suffix: "", label: "Repositorios públicos" },
+  { value: 6, suffix: "", label: "Proyectos destacados" },
   { value: 7, suffix: "", label: "Microservicios en reservas" },
   { value: 2, suffix: "", label: "Experiencias profesionales" },
   { value: 29, suffix: "+", label: "Tecnologías en mi stack" },

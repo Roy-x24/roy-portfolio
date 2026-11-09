@@ -42,8 +42,7 @@ export default function GithubLive() {
         own.forEach((x) => x.language && (langs[x.language] = (langs[x.language] || 0) + 1));
         const total = Object.values(langs).reduce((a, b) => a + b, 0);
         setData({
-          repos: u.public_repos,
-          followers: u.followers,
+          last: own[0]?.pushed_at,
           langs: Object.entries(langs)
             .sort((a, b) => b[1] - a[1])
             .map(([name, n]) => ({ name, pct: (n / total) * 100 })),
@@ -61,7 +60,7 @@ export default function GithubLive() {
   if (!data) return null;
 
   return (
-    <section id="github" className="relative py-28 px-6 bg-[#0b0a14]">
+    <section id="github" className="relative py-20 md:py-28 px-5 sm:px-6 bg-[#0b0a14]">
       <div className="max-w-5xl mx-auto">
         <SectionTitle
           eyebrow="github en vivo"
@@ -74,17 +73,17 @@ export default function GithubLive() {
             <div className="h-full rounded-2xl border border-white/10 bg-white/[0.03] p-7">
               <div className="grid grid-cols-2 gap-4 text-center">
                 <div>
-                  <div className="text-4xl font-extrabold text-gradient">{data.repos}</div>
-                  <p className="text-sm text-gray-400">repositorios</p>
+                  <div className="text-4xl font-extrabold text-gradient">{data.langs.length}</div>
+                  <p className="text-sm text-gray-400">lenguajes</p>
                 </div>
                 <div>
-                  <div className="text-4xl font-extrabold text-gradient">{data.followers}</div>
-                  <p className="text-sm text-gray-400">seguidores</p>
+                  <div className="text-2xl pt-2 font-extrabold text-gradient">{data.last ? ago(data.last) : "—"}</div>
+                  <p className="text-sm text-gray-400">último commit</p>
                 </div>
               </div>
 
               <h3 className="mt-8 mb-3 font-mono text-xs uppercase tracking-widest text-gray-400">
-                Lenguajes (por repositorio)
+                Lenguajes que uso
               </h3>
               <div className="flex h-3 overflow-hidden rounded-full bg-white/10">
                 {data.langs.map((l) => (

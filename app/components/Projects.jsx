@@ -77,12 +77,12 @@ export default function Projects() {
   const visible = projects.filter((p) => filter === "Todos" || p.category === filter);
 
   return (
-    <section id="proyectos" className="relative py-28 px-6 bg-[#0b0a14]">
+    <section id="proyectos" className="relative py-20 md:py-28 px-5 sm:px-6 bg-[#0b0a14]">
       <div className="max-w-6xl mx-auto">
         <SectionTitle
           eyebrow="proyectos"
           title="Cosas que he construido"
-          subtitle="Una selección de mis repositorios: sistemas de microservicios, plataformas de cumplimiento, juegos con IA y aplicaciones en tiempo casi real."
+          subtitle="Una selección de mi trabajo: sistemas de microservicios, plataformas de cumplimiento, juegos con IA y aplicaciones en tiempo casi real."
         />
 
         <Reveal className="mb-10 flex flex-wrap justify-center gap-2">
@@ -115,7 +115,7 @@ export default function Projects() {
             rel="noreferrer"
             className="inline-block rounded-xl border border-white/15 bg-white/5 px-8 py-3 font-semibold hover:bg-white/10 transition"
           >
-            Ver los 28 repositorios en GitHub →
+            Ver más proyectos en GitHub →
           </a>
         </Reveal>
       </div>
